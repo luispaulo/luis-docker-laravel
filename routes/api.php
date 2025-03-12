@@ -8,6 +8,10 @@ use App\Http\Controllers\Api\UserController;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
+Route::get('/test', function () {
+    return response()->json(['message' => 'API OK!']);
+});
+
 Route::prefix('users')->group(function () {
     Route::get('/', [UserController::class, 'index']);
     Route::post('/', [UserController::class, 'store']);
