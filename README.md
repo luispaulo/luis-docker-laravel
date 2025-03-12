@@ -8,23 +8,41 @@ git clone git@github.com:luispaulo/luis-docker-laravel.git
 cd luis-docker-laravel
 ```
 
-### 2. Subir o ambiente Docker
+### 2. Preparando arquivo .env
+- Crie o arquivo .env
+```bash
+cp .env.example .env
+```
+
+- Retire o comentario da linha abaixo:
+```bash
+# DB_CONNECTION=sqlite
+# DB_DATABASE=/var/www/database/database.sqlite
+# SESSION_DRIVER=file
+```
+
+### 3. Criando arquivo de banco do sqlite 
+```bash
+mkdir -p database && touch database/database.sqlite
+```
+
+### 4. Subir o ambiente Docker
 ```bash
 docker-compose up --build -d
 ```
 
-### 3. rodando migrate
+### 5. rodando migrate
 ```bash
 docker exec -it laravel_app php artisan migrate
 ```
 
-### 4. Acessando o ambiente
+### 6. Acessando o ambiente
 
 ```bash
 Agora, o Laravel estará rodando em ` http://localhost:8000/api`  🚀
 ```
 
-### 5. Rotas para testar API utitilizando POSTMAN ou similar:
+### 7. Rotas para testar API utitilizando POSTMAN ou similar:
 
 - Rota para testar API:
 ```bash
