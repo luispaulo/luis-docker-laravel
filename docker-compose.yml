@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: laravel_app
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      - sqlite
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=
+      - DB_CONNECTION=sqlite
+
+  sqlite:
+    image: alpine
+    container_name: sqlite_db
+    command: tail -f /dev/null
+    volumes:
+      - .:/var/www
