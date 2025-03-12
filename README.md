@@ -77,3 +77,10 @@ curl -X PUT http://localhost:8000/api/users/1 \
 ```bash
 curl -X DELETE http://localhost:8000/api/users/1
 ```
+
+
+OBS: Caso ocorra erro de key:generate execute o comando abaixo
+
+```bash
+docker exec -it laravel_app php artisan key:generate
+```
